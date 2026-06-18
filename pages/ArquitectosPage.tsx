@@ -122,72 +122,75 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
 
       <ArquitectosBanner onNavigate={onNavigate} />
 
-      {/* ─── POR QUÉ VELUX ─── */}
-      <section className="bg-[#F5F5F7] py-20 md:py-28">
+      {/* ─── POR QUÉ + SERVICIOS UNIFICADO ─── */}
+      <section className="relative bg-[#111] py-20 md:py-28 overflow-hidden">
+
+        <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
+          style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute top-0 inset-x-0 h-px bg-white/5" />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-white/5" />
+
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <div className="flex items-end justify-between pb-8 border-b border-[#D2D2D7]">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">01 — Por qué especificarlo</span>
-              <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-                Por qué los<br />arquitectos<br />eligen <span className="text-red-600">VELUX</span>
-              </h2>
-            </motion.div>
-            <div className="hidden lg:block text-[160px] font-[1000] text-[#1D1D1F]/[0.03] leading-none italic uppercase select-none -mb-4">
-              01
+          {/* Header */}
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="mb-14 pb-12 border-b border-white/8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-5 h-px bg-red-600" />
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500/70">El socio técnico</span>
             </div>
-          </div>
-
-          <div className="divide-y divide-[#D2D2D7]">
-            {WHY.map((item, idx) => (
-              <motion.div
-                key={idx}
-                variants={FV} initial="hidden" whileInView="visible" viewport={VP}
-                transition={{ delay: idx * 0.07 } as object}
-                className="grid grid-cols-12 gap-4 md:gap-8 py-10 group">
-                <div className="col-span-2 md:col-span-1 flex items-start pt-1">
-                  <span className="text-5xl font-[1000] italic text-[#1D1D1F]/[0.06] leading-none select-none">0{idx + 1}</span>
-                </div>
-                <div className="col-span-10 md:col-span-4">
-                  <div className="w-5 h-[2px] bg-red-600 mb-3 group-hover:w-8 transition-all duration-300" />
-                  <h3 className="font-[1000] text-[#1D1D1F] text-sm md:text-base uppercase tracking-tight italic leading-snug">{item.title}</h3>
-                </div>
-                <div className="col-span-12 md:col-span-7 md:col-start-6">
-                  <p className="text-[#6E6E73] text-sm leading-relaxed">{item.body}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── SERVICIOS ─── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          <div className="flex items-end justify-between pb-8 border-b border-[#D2D2D7] mb-2">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">02 — Servicios para estudios</span>
-              <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-                Lo que ofrecemos<br />a tu estudio
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <h2 className="text-3xl md:text-[2.8rem] font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
+                Por qué los arquitectos<br />eligen trabajar con nosotros.
               </h2>
-            </motion.div>
-          </div>
+              <p className="text-white/30 text-sm leading-relaxed max-w-xs font-light shrink-0">
+                Desde el primer boceto hasta la entrega de obra, somos el respaldo técnico de tu estudio.
+              </p>
+            </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[#D2D2D7]">
-            {SERVICES.map(({ Icon, title, body }, idx) => (
-              <motion.div
-                key={idx}
-                variants={FVO} initial="hidden" whileInView="visible" viewport={VP}
-                transition={{ delay: idx * 0.06 } as object}
-                className="group bg-white p-8 hover:bg-[#F5F5F7] transition-colors duration-200 cursor-default">
-                <div className="w-9 h-9 rounded-xl bg-[#F5F5F7] group-hover:bg-white flex items-center justify-center mb-5 transition-colors">
-                  <Icon size={16} className="text-[#1D1D1F]" />
-                </div>
-                <h3 className="font-[1000] text-[#1D1D1F] text-xs uppercase tracking-wide italic mb-2 leading-snug">{title}</h3>
-                <p className="text-[#6E6E73] text-xs leading-relaxed">{body}</p>
-              </motion.div>
-            ))}
+          {/* Dos columnas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0 lg:divide-x divide-white/8">
+
+            {/* Izquierda — razones */}
+            <div className="lg:pr-16">
+              <p className="text-[8px] font-black uppercase tracking-[0.5em] text-white/20 mb-8">Razones para especificarnos</p>
+              <div className="divide-y divide-white/6">
+                {WHY.map((item, idx) => (
+                  <motion.div key={idx}
+                    initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                    transition={{ delay: idx * 0.08 }}
+                    className="group py-7 flex gap-5 items-start">
+                    <span className="text-[10px] font-black text-white/12 tracking-widest pt-0.5 shrink-0 tabular-nums">0{idx + 1}</span>
+                    <div>
+                      <div className="w-4 h-[1.5px] bg-red-600 mb-3 group-hover:w-6 transition-all duration-300" />
+                      <h3 className="font-[1000] text-white text-sm uppercase italic tracking-tight mb-2">{item.title}</h3>
+                      <p className="text-white/35 text-xs leading-relaxed">{item.body}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Derecha — servicios */}
+            <div className="lg:pl-16">
+              <p className="text-[8px] font-black uppercase tracking-[0.5em] text-white/20 mb-8">Servicios para tu estudio</p>
+              <div className="grid grid-cols-2 gap-px bg-white/5 rounded-2xl overflow-hidden">
+                {SERVICES.map(({ Icon, title, body }, idx) => (
+                  <motion.div key={idx}
+                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                    transition={{ delay: idx * 0.06 }}
+                    className="group bg-[#111] hover:bg-white/[0.04] transition-colors duration-200 p-6 cursor-default">
+                    <div className="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-red-600/15 flex items-center justify-center mb-4 transition-colors duration-200">
+                      <Icon size={14} className="text-white/35 group-hover:text-red-500 transition-colors duration-200" />
+                    </div>
+                    <h3 className="font-[1000] text-white text-[11px] uppercase italic tracking-tight mb-1.5 leading-snug">{title}</h3>
+                    <p className="text-white/30 text-[11px] leading-relaxed">{body}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
