@@ -254,35 +254,35 @@ const App: React.FC = () => {
                     <HeroSlider onCTA={() => navigate("home", "wizard-anchor")} />
 
                     {/* ESPACIOS QUE ILUMINAMOS */}
-                    <section className="relative bg-[#0e0e0e] py-24 md:py-36 overflow-hidden">
+                    <section className="relative bg-[#0e0e0e] py-16 md:py-24 overflow-hidden">
 
                       {/* Grain texture */}
-                      <div className="absolute inset-0 pointer-events-none opacity-[0.18]"
-                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '180px' }} />
+                      <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '160px' }} />
 
-                      {/* Red glow top-left — grande y suave */}
-                      <div className="absolute -top-32 -left-32 w-[700px] h-[700px] rounded-full pointer-events-none"
-                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.13) 0%, transparent 70%)' }} />
+                      {/* Dot grid */}
+                      <div className="absolute inset-0 pointer-events-none opacity-[0.07]"
+                        style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
 
-                      {/* Red glow bottom-right */}
-                      <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full pointer-events-none"
-                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.10) 0%, transparent 70%)' }} />
+                      {/* Red glow — esquina superior izquierda */}
+                      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
+                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.18) 0%, transparent 65%)' }} />
 
-                      {/* Warm center glow */}
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
-                        style={{ background: 'radial-gradient(ellipse, rgba(220,38,38,0.06) 0%, transparent 65%)' }} />
+                      {/* Red glow — esquina inferior derecha */}
+                      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
+                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 65%)' }} />
 
-                      {/* Diagonal grid lines */}
-                      <div className="absolute inset-0 pointer-events-none opacity-[0.035]"
-                        style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)', backgroundSize: '85px 85px' }} />
+                      {/* Spotlight central — simula luz desde arriba */}
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+                        style={{ background: 'radial-gradient(ellipse at top, rgba(220,38,38,0.08) 0%, transparent 70%)' }} />
 
-                      {/* Top border glow */}
-                      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
-                        style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 30%, rgba(220,38,38,0.4) 70%, transparent)' }} />
+                      {/* Top border glow rojo */}
+                      <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
+                        style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(220,38,38,0.6) 35%, rgba(220,38,38,0.6) 65%, transparent 95%)' }} />
 
-                      {/* Bottom border glow */}
+                      {/* Bottom border sutil */}
                       <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-                        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 50%, transparent)' }} />
+                        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 50%, transparent)' }} />
 
                       <div className="max-w-7xl mx-auto px-4 md:px-10">
 
@@ -291,17 +291,16 @@ const App: React.FC = () => {
                           initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                           className="mb-14 md:mb-20"
                         >
-                          <div className="flex items-center gap-3 mb-6">
-                            <div className="w-8 h-px bg-red-600" />
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-6 h-px bg-red-600" />
                             <span className="text-red-500/80 text-[9px] font-black uppercase tracking-[0.5em]">
                               Portfolio · Obras reales 2026
                             </span>
                           </div>
 
-                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-                            <h2 className="text-[clamp(2.8rem,7.5vw,6.5rem)] font-[1000] tracking-tighter text-white uppercase italic leading-[0.85]">
-                              Espacios<br />
-                              que <span className="text-red-600">iluminamos.</span>
+                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-[1000] tracking-tighter text-white uppercase italic leading-[0.9]">
+                              Espacios que <span className="text-red-600">iluminamos.</span>
                             </h2>
 
                             <div className="max-w-sm shrink-0">
