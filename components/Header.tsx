@@ -73,8 +73,8 @@ const Header: React.FC<HeaderProps> = ({ currentView: cv, onNavigate: nav, onAdm
       ? cv === 'product-detail'
       : window.location.pathname === lnk.href;
     if (isCurrent) return 'text-red-500';
-    if (sc || cv === 'product-detail') return 'text-slate-600 hover:text-black';
-    return 'text-slate-700 hover:text-black';
+    if (sc || cv === 'product-detail') return 'text-slate-600 hover:text-red-600';
+    return 'text-slate-700 hover:text-red-600';
   };
 
   const allMobileLinks = [...NAV_LINKS, ...MOBILE_EXTRA];
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ currentView: cv, onNavigate: nav, onAdm
                     <a
                       href={lnk.href}
                       onClick={(e) => handleLinkClick(e, lnk)}
-                      className={`text-xs font-medium tracking-wide uppercase transition-all duration-300 px-2 py-2 ${lnk.view === 'arquitectos' ? 'text-amber-600 hover:text-amber-500 font-black' : glc(lnk)}`}
+                      className={`text-xs font-medium tracking-wide uppercase transition-all duration-300 px-2 py-2 ${lnk.view === 'arquitectos' ? 'text-red-600 hover:text-red-500 font-black' : glc(lnk)}`}
                     >
                       {lnk.name}
                     </a>

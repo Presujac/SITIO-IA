@@ -77,12 +77,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate, onNavigateApp }) => (
               <a href="https://wa.me/5491168396459" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[10px] font-semibold text-slate-400 hover:text-slate-700 transition-colors">
                 <MessageCircle size={10} className="text-green-500" />
-                +54 9 11 6890-0014
-              </a>
-              <a href="https://wa.me/5491171518723" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[10px] font-semibold text-slate-400 hover:text-slate-700 transition-colors">
-                <MessageCircle size={10} className="text-green-500" />
-                +54 9 11 7151-8723
+                +54 11 6839-6459
               </a>
               <a href="https://www.instagram.com/techosjac" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[10px] font-semibold text-slate-400 hover:text-slate-700 transition-colors">

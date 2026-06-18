@@ -86,8 +86,9 @@ const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </div>
 
-      {/* Línea inferior */}
-      <div className="absolute bottom-0 inset-x-0 h-px bg-white/5" />
+      {/* Fade inferior hacia la sección siguiente */}
+      <div className="absolute bottom-0 inset-x-0 h-48 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #0a0a0a)' }} />
 
     </section>
   );

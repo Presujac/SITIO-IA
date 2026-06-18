@@ -5,6 +5,7 @@ import { useSEO } from '../hooks/useSEO';
 import { schemaBreadcrumb } from '../seo/schemas';
 import type { AppNavigate, AppView } from '../App';
 import ArquitectosBanner from '../components/ArquitectosBanner';
+import EventosComunidad from '../components/EventosComunidad';
 
 interface Props { onNavigate: AppNavigate; }
 
@@ -50,7 +51,18 @@ const PRODUCTS: { title: string; body: string; view: AppView | null }[] = [
 
 const FEATURED: { name: string; studio: string; city: string; photo: string; project: string; quote: string; description: string; category: string; cta: string }[] = [
   {
-    name: 'Yago',
+    name: 'Agos Marchesini',
+    studio: 'Agos Arquitectura',
+    city: 'Nordelta',
+    photo: '/AGOS MARCHESINI.JPEG',
+    project: '/living_room.jpg',
+    category: 'Diseño de interiores · Proyecto',
+    quote: 'Cada apertura en el techo es una oportunidad para conectar interior y exterior.',
+    description: 'Agos integra ventanas de techo desde la etapa de anteproyecto, logrando que la luz sea un material más en la paleta de diseño. Sus espacios comunican calidez sin renunciar a la eficiencia energética.',
+    cta: 'Conocer su trabajo',
+  },
+  {
+    name: 'Yago Bongiovanni',
     studio: 'Estudio Yago',
     city: 'Buenos Aires',
     photo: '/marcela.jpeg',
@@ -61,18 +73,7 @@ const FEATURED: { name: string; studio: string; city: string; photo: string; pro
     cta: 'Ver proyecto',
   },
   {
-    name: 'Agos',
-    studio: 'Agos Arquitectura',
-    city: 'Nordelta',
-    photo: '/officia.jpeg',
-    project: '/living_room.jpg',
-    category: 'Diseño de interiores · Proyecto',
-    quote: 'Cada apertura en el techo es una oportunidad para conectar interior y exterior.',
-    description: 'Agos integra ventanas de techo desde la etapa de anteproyecto, logrando que la luz sea un material más en la paleta de diseño. Sus espacios comunican calidez sin renunciar a la eficiencia energética.',
-    cta: 'Conocer su trabajo',
-  },
-  {
-    name: 'Sara',
+    name: 'Sara Plazibat',
     studio: 'Sara Diseño',
     city: 'San Isidro',
     photo: '/cholila.jpeg',
@@ -89,7 +90,6 @@ const INTERESTS = [
   'Solicitar asesoramiento técnico',
   'Mostrar un proyecto',
   'Participar de entrevistas',
-  'Capacitación profesional',
 ];
 
 const ARCHITECTS = [
@@ -126,10 +126,12 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
       <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Foto de fondo */}
         <img src="/DSC00580.JPEG" alt="" aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '50% 0%' }} />
+          className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: '50% 28%' }} />
         {/* Overlay fuerte para legibilidad */}
         <div className="absolute inset-0" style={{ background: 'rgba(10,10,10,0.82)' }} />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 50%, transparent)' }} />
+        {/* Fade superior para fundir con el hero */}
+        <div className="absolute top-0 inset-x-0 h-40 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, #0a0a0a, transparent)' }} />
         <div className="absolute bottom-0 inset-x-0 h-px bg-white/5" />
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
@@ -165,108 +167,95 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* ─── COMUNIDAD DE ARQUITECTOS ─── */}
-      <section className="bg-white py-20 md:py-28">
+      {/* ─── PODCAST OBRA EN OBRA ─── */}
+      <section className="relative bg-[#0a0a0a] py-20 md:py-28 overflow-hidden">
+
+        {/* Grain */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 512 512\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.75\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")', backgroundSize: '256px' }} />
+
+        {/* Red glow top */}
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 50%, transparent)' }} />
+
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-6 h-[2px] bg-red-600" />
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-600">Red JAC · Comunidad</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-2">
-              Arquitectos que<br />hacen historia.
-            </h2>
-            <p className="text-[#6E6E73] text-sm leading-relaxed max-w-lg mt-4">
-              Tres estudios. Tres visiones sobre la luz natural. Proyectos reales desarrollados con el respaldo técnico de Techos JAC y VELUX.
-            </p>
-          </motion.div>
+          {/* 3 cards iguales */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {FEATURED.map((arq, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="group flex flex-col bg-[#111] rounded-2xl overflow-hidden border border-white/[0.06] hover:border-white/[0.12] transition-colors duration-500 cursor-pointer">
 
-          {FEATURED.map((arq, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-              className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center py-14 border-t border-[#E5E5E7]`}
-            >
-              {/* Imagen del proyecto */}
-              <div className="w-full md:w-1/2">
-                <div className="relative overflow-hidden rounded-2xl bg-[#F5F5F7]" style={{ aspectRatio: '4/3' }}>
-                  <img src={arq.project} alt={`Proyecto de ${arq.name}`} loading="lazy"
-                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" />
-                  {/* Badge del arquitecto sobre la foto */}
-                  <div className="absolute bottom-4 left-4">
-                    <div className="flex items-center gap-2.5 bg-white/90 backdrop-blur-md rounded-full pl-1.5 pr-4 py-1.5 shadow-lg">
-                      <div className="w-7 h-7 rounded-full overflow-hidden bg-slate-200 flex-shrink-0 ring-2 ring-white">
-                        <img src={arq.photo} alt={arq.name} className="w-full h-full object-cover" />
-                      </div>
-                      <div>
-                        <p className="text-[10px] font-black uppercase tracking-wide text-slate-900 leading-none">{arq.name}</p>
-                        <p className="text-[9px] text-slate-400 font-medium leading-none mt-0.5">{arq.city}</p>
-                      </div>
+                {/* Foto */}
+                <div className="relative overflow-hidden" style={{ height: '320px' }}>
+                  <img src={arq.photo} alt={arq.name} loading="lazy"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.05]" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/20 to-transparent" />
+
+                  {/* Ep + play */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="bg-black/60 backdrop-blur-sm border border-white/10 text-white/40 text-[7px] font-black uppercase tracking-[0.4em] px-2.5 py-1 rounded-full">
+                      Ep. {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div className="w-14 h-14 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm
+                      flex items-center justify-center pl-1
+                      opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100
+                      transition-all duration-300">
+                      <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
+                        <path d="M1 1L15 9L1 17V1Z" fill="white" fillOpacity="0.95"/>
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Número watermark */}
+                  <span className="absolute bottom-2 right-4 text-[5rem] font-[1000] italic leading-none select-none pointer-events-none"
+                    style={{ color: 'rgba(255,255,255,0.05)' }}>
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                </div>
+
+                {/* Texto */}
+                <div className="flex flex-col flex-1 p-6 pt-5">
+                  <p className="text-white/25 text-[8px] font-black uppercase tracking-[0.5em] mb-1">{arq.studio} · {arq.city}</p>
+                  <h3 className="text-2xl font-[1000] uppercase italic tracking-tighter text-white leading-none mb-5">
+                    {arq.name}
+                  </h3>
+
+                  {/* Quote — lo que dicen */}
+                  <div className="flex-1 relative pl-4 border-l-2 border-red-600/40">
+                    <span className="absolute -top-2 -left-1 text-red-600/30 text-3xl font-serif leading-none">"</span>
+                    <p className="text-white/55 text-sm font-light italic leading-relaxed">
+                      {arq.quote}
+                    </p>
+                    <span className="text-red-600/30 text-3xl font-serif leading-none">"</span>
+                  </div>
+
+                  {/* Category tag */}
+                  <div className="mt-5 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                    <span className="text-white/20 text-[8px] font-black uppercase tracking-[0.4em]">{arq.category}</span>
+                    <div className="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <svg width="8" height="10" viewBox="0 0 8 10" fill="none">
+                        <path d="M0.5 0.5L7.5 5L0.5 9.5V0.5Z" fill="white" fillOpacity="0.5"/>
+                      </svg>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Contenido editorial */}
-              <div className="w-full md:w-1/2">
-                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#6E6E73]">{arq.category}</span>
-                <blockquote className="text-2xl md:text-3xl font-[1000] italic tracking-tighter text-[#1D1D1F] leading-[1.1] mt-3 mb-5">
-                  "{arq.quote}"
-                </blockquote>
-                <p className="text-[#6E6E73] text-sm leading-relaxed mb-7">{arq.description}</p>
-                <button
-                  onClick={() => onNavigate('contacto')}
-                  className="inline-flex items-center gap-2 text-[#1D1D1F] hover:text-red-600 font-[1000] text-[10px] uppercase tracking-widest italic transition-colors cursor-pointer group/btn border-b border-[#1D1D1F]/30 hover:border-red-600 pb-0.5">
-                  {arq.cta}
-                  <ArrowRight size={11} className="group-hover/btn:translate-x-1 transition-transform" />
-                </button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
 
         </div>
+
+        <div className="absolute bottom-0 inset-x-0 h-px bg-white/[0.04]" />
       </section>
 
-      {/* ─── CTA COMUNIDAD ─── */}
-      <section className="relative bg-[#111] py-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
-          style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-          style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(220,38,38,0.6) 40%, rgba(220,38,38,0.6) 60%, transparent 95%)' }} />
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, rgba(220,38,38,0.1) 0%, transparent 65%)' }} />
-
-        <div className="max-w-3xl mx-auto px-6 md:px-10 text-center">
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 text-[9px] font-black uppercase tracking-[0.4em] px-4 py-2 rounded-full mb-7">
-              <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
-              Para arquitectos
-            </span>
-            <h2 className="text-5xl md:text-7xl font-[1000] tracking-tighter text-white leading-[0.85] uppercase italic mb-5">
-              ¿Sos<br />arquitecto?
-            </h2>
-            <p className="text-white/40 text-base leading-relaxed mb-10 max-w-md mx-auto">
-              Formá parte de nuestra comunidad. Compartí proyectos, accedé al respaldo técnico de VELUX y conectá con otros estudios de diseño.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => document.getElementById('form-comunidad')?.scrollIntoView({ behavior: 'smooth' })}
-                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-red-600 text-[#1D1D1F] hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
-                Solicitar catálogo completo
-                <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button
-                onClick={() => document.getElementById('form-comunidad')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-red-500/40 text-white/60 hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
-                Quiero sumarme
-                <ArrowRight size={11} />
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <EventosComunidad />
 
       {/* ─── FORMULARIO COMUNIDAD ─── */}
       <section id="form-comunidad" className="bg-[#F5F5F7] py-20 md:py-28">
@@ -371,45 +360,6 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* ─── CTA ─── */}
-      <section id="contacto-arq" className="bg-[#1D1D1F] py-28 md:py-40">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          <motion.div variants={FVO} initial="hidden" whileInView="visible" viewport={VP} className="mb-14">
-            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-white/30">04 — Contacto</span>
-            <h2 className="text-[52px] md:text-[80px] lg:text-[100px] font-[1000] tracking-tighter text-white leading-[0.85] uppercase italic mt-4">
-              Hablemos<br />de tu<br /><span className="text-red-500">proyecto.</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            variants={FVO} initial="hidden" whileInView="visible" viewport={VP}
-            transition={{ delay: 0.15 } as object}
-            className="border-t border-white/10 pt-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
-            <ul className="flex flex-col sm:flex-row flex-wrap gap-5 sm:gap-8 text-white/40 text-[10px] font-black uppercase tracking-widest list-none p-0 m-0">
-              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Fichas técnicas y CAD por mail</li>
-              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Visita con muestras (coordinar)</li>
-              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Presupuesto sin cargo</li>
-            </ul>
-            <div className="flex flex-col sm:flex-row gap-3 shrink-0">
-              <button
-                onClick={() => onNavigate('contacto')}
-                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-red-600 text-[#1D1D1F] font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
-                Consultar por un proyecto
-                <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-              </button>
-              <a
-                href={'https:' + String.fromCharCode(47, 47) + 'wa.me/5491168396459?text=Hola%20Techos%20JAC%2C%20soy%20arquitecto%20y%20quiero%20consultar%20por%20un%20proyecto'}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-white/40 text-white/60 hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300">
-                <MessageCircle size={13} />
-                WhatsApp directo
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
     </div>
   );

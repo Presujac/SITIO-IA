@@ -12,7 +12,7 @@ export const schemaOrganization = {
   'logo': { '@type': 'ImageObject', 'url': BASE + '/logo.png' },
   'image': BASE + '/cabrio.jpg',
   'description': 'Distribuidor oficial e importador directo de ventanas de techo VELUX en Argentina. Mas de 4.000 ventanas instaladas.',
-  'telephone': ['+5491171518723', '+5491168900014'],
+  'telephone': ['+5491168396459'],
   'email': 'ventanas.jac@gmail.com',
   'address': {
     '@type': 'PostalAddress',
@@ -31,7 +31,7 @@ export const schemaOrganization = {
     { '@type': 'AdministrativeArea', 'name': 'Gran Buenos Aires' },
     { '@type': 'City', 'name': 'Buenos Aires' },
   ],
-  'sameAs': ['https:' + _d + 'www.instagram.com/techosjac', 'https:' + _d + 'wa.me/5491168900014'],
+  'sameAs': ['https:' + _d + 'www.instagram.com/techosjac', 'https:' + _d + 'wa.me/5491168396459'],
   'hasOfferCatalog': {
     '@type': 'OfferCatalog',
     'name': 'Catalogo VELUX Argentina',

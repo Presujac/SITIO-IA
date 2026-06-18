@@ -18,7 +18,7 @@ const schema = {
     {
       "@type": "LocalBusiness",
       "name": "Techos JAC",
-      "telephone": ["+5491171518723", "+5491168396459"],
+      "telephone": ["+5491168396459"],
       "email": "ventanas.jac@gmail.com",
       "address": {
         "@type": "PostalAddress",
@@ -84,7 +84,7 @@ const ContactoPage: React.FC<Props> = ({ onNavigate }) => {
             <div className="space-y-5">
               {[
                 { Icon: MessageCircle, title: 'WhatsApp (principal)', value: '+54 11 6839-6459', href: 'https://wa.me/5491168396459', label: 'Abrir WhatsApp' },
-                { Icon: Phone, title: 'Teléfono', value: '+54 9 11 7151-8723', href: 'tel:+5491171518723', label: 'Llamar' },
+                { Icon: Phone, title: 'Teléfono', value: '+54 11 6839-6459', href: 'tel:+5491168396459', label: 'Llamar' },
                 { Icon: Mail, title: 'Email', value: 'ventanas.jac@gmail.com', href: 'mailto:ventanas.jac@gmail.com', label: 'Enviar email' },
                 { Icon: MapPin, title: 'Showroom', value: 'Official Work Pilar, Ruta 8 km 54', href: 'https://maps.google.com/?q=Pilar+Buenos+Aires+Argentina', label: 'Ver en mapa' },
               ].map(({ Icon, title, value, href, label }) => (
