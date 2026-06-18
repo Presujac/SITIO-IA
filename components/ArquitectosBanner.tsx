@@ -7,22 +7,22 @@ interface Props { onNavigate: AppNavigate; }
 
 const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
   return (
-    <section className="relative bg-[#0e0e0e] min-h-[92vh] flex flex-col justify-center overflow-hidden">
+    <section className="relative min-h-[92vh] flex flex-col justify-center overflow-hidden">
 
-      {/* Dot grid muy sutil */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-          backgroundSize: '32px 32px',
-        }} />
+      {/* Foto de fondo */}
+      <img
+        src="/arq.JPEG"
+        alt="Comunidad de Arquitectos"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
 
-      {/* Glow rojo — único, suave, esquina superior */}
-      <div className="absolute -top-80 -left-80 w-[800px] h-[800px] pointer-events-none rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.08) 0%, transparent 60%)' }} />
+      {/* Overlay oscuro con degradado */}
+      <div className="absolute inset-0"
+        style={{ background: 'linear-gradient(105deg, rgba(10,10,10,0.92) 50%, rgba(10,10,10,0.65) 100%)' }} />
 
-      {/* Línea superior */}
+      {/* Línea superior roja */}
       <div className="absolute top-0 inset-x-0 h-px"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.45) 50%, transparent)' }} />
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.5) 50%, transparent)' }} />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full py-32 md:py-40">
 
