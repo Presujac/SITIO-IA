@@ -5,7 +5,6 @@ import { useSEO } from '../hooks/useSEO';
 import { schemaBreadcrumb } from '../seo/schemas';
 import type { AppNavigate, AppView } from '../App';
 import ArquitectosBanner from '../components/ArquitectosBanner';
-import { PortraitSlider, comparisons } from '../components/AD';
 
 interface Props { onNavigate: AppNavigate; }
 
@@ -123,99 +122,6 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
 
       <ArquitectosBanner onNavigate={onNavigate} />
 
-      {/* ─── PORTFOLIO ─── */}
-      <section className="bg-[#F5F5F7] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div>
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">Portfolio de obras · 2026</span>
-              <h2 className="text-4xl md:text-6xl font-[1000] text-[#1D1D1F] tracking-tighter leading-[0.88] uppercase italic mt-3">
-                Espacios que<br /><span className="text-red-600">iluminamos.</span>
-              </h2>
-            </div>
-            <p className="text-[#6E6E73] text-sm leading-relaxed max-w-xs">
-              Deslizá sobre cada proyecto para ver la transformación. Obras reales instaladas por nuestro equipo certificado VELUX.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            {comparisons.map((pair, i) => (
-              <PortraitSlider key={pair.id} pair={pair} index={i} />
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mt-12 pt-8 border-t border-[#D2D2D7] flex flex-wrap gap-10 md:gap-20">
-            {([['4.000+', 'Ventanas instaladas'], ['10 años', 'Garantía de fábrica'], ['CAD · BIM', 'Archivos técnicos']] as [string, string][]).map(([n, l]) => (
-              <div key={l}>
-                <p className="text-2xl md:text-3xl font-[1000] italic tracking-tighter text-[#1D1D1F] leading-none">{n}</p>
-                <p className="text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mt-1.5">{l}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ─── ARQUITECTOS QUE TRABAJAN CON NOSOTROS ─── */}
-      <section className="bg-white py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mb-12">
-            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">Aliados · Red de diseño</span>
-            <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-              Arquitectos que<br />trabajan con <span className="text-red-600">nosotros.</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-            {ARCHITECTS.map((arq, idx) => (
-              <motion.div
-                key={idx}
-                variants={FV} initial="hidden" whileInView="visible" viewport={VP}
-                transition={{ delay: idx * 0.07 } as object}
-                className="group cursor-default">
-                {/* Photo */}
-                <div className="relative overflow-hidden rounded-2xl bg-[#F5F5F7] mb-3" style={{ aspectRatio: '3/4' }}>
-                  <img
-                    src={arq.photo}
-                    alt={"Proyecto de " + arq.name}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
-                  />
-                  {/* Subtle overlay on hover */}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-                {/* Info below card */}
-                <p className="font-[1000] text-[#1D1D1F] text-xs uppercase italic tracking-tight leading-tight">{arq.name}</p>
-                <p className="text-[#6E6E73] text-[10px] font-black uppercase tracking-widest mt-0.5">{arq.studio}</p>
-                <p className="text-red-600 text-[9px] font-black uppercase tracking-widest mt-0.5">{arq.city}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="mt-12 pt-8 border-t border-[#D2D2D7] flex items-center justify-between gap-4">
-            <p className="text-[#6E6E73] text-[10px] font-black uppercase tracking-widest">
-              Más de 15 estudios trabajan con nosotros activamente
-            </p>
-            <button
-              onClick={() => onNavigate('contacto')}
-              className="inline-flex items-center gap-2 text-[#1D1D1F] hover:text-red-600 font-black text-[10px] uppercase tracking-widest transition-colors cursor-pointer group/btn">
-              Sumate a la red
-              <ArrowRight size={11} className="group-hover/btn:translate-x-1 transition-transform" />
-            </button>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ─── POR QUÉ VELUX ─── */}
       <section className="bg-[#F5F5F7] py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -281,43 +187,6 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
                 <h3 className="font-[1000] text-[#1D1D1F] text-xs uppercase tracking-wide italic mb-2 leading-snug">{title}</h3>
                 <p className="text-[#6E6E73] text-xs leading-relaxed">{body}</p>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── PRODUCTOS ─── */}
-      <section className="bg-[#F5F5F7] py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
-
-          <div className="flex items-end justify-between pb-8 border-b border-[#D2D2D7] mb-10">
-            <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">03 — Catálogo técnico</span>
-              <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-                Productos más<br /><span className="text-red-600">especificados</span>
-              </h2>
-            </motion.div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {PRODUCTS.map((prod, idx) => (
-              <motion.article
-                key={idx}
-                variants={FV} initial="hidden" whileInView="visible" viewport={VP}
-                transition={{ delay: idx * 0.08 } as object}
-                className="group bg-white rounded-2xl p-8 md:p-10 hover:shadow-lg hover:shadow-black/5 transition-all duration-300 cursor-default">
-                <div className="w-5 h-[2px] bg-red-600 mb-5 group-hover:w-10 transition-all duration-300" />
-                <h3 className="font-[1000] text-[#1D1D1F] text-sm md:text-base uppercase tracking-tight italic mb-3 leading-snug">{prod.title}</h3>
-                <p className="text-[#6E6E73] text-sm leading-relaxed mb-5">{prod.body}</p>
-                {prod.view && (
-                  <button
-                    onClick={() => onNavigate(prod.view as AppView)}
-                    className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-[1000] text-[10px] uppercase tracking-widest italic transition-colors cursor-pointer group/btn">
-                    Ver especificaciones técnicas
-                    <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                )}
-              </motion.article>
             ))}
           </div>
         </div>
