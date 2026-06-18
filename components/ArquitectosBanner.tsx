@@ -82,23 +82,6 @@ const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
             </button>
           </motion.div>
 
-          {/* Stats — línea horizontal con separadores */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="flex flex-wrap gap-10 pt-10 border-t border-white/8">
-            {[
-              { n: '+50', label: 'Estudios activos' },
-              { n: '4.000+', label: 'Ventanas instaladas' },
-              { n: '15 años', label: 'Experiencia técnica' },
-              { n: 'CAD · BIM', label: 'Archivos técnicos' },
-            ].map(({ n, label }) => (
-              <div key={label}>
-                <p className="text-xl md:text-2xl font-[1000] italic text-white tracking-tighter leading-none mb-1.5">{n}</p>
-                <p className="text-[8px] font-black uppercase tracking-[0.45em] text-white/25">{label}</p>
-              </div>
-            ))}
-          </motion.div>
 
         </div>
       </div>
