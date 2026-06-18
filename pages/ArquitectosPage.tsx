@@ -123,7 +123,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
       <ArquitectosBanner onNavigate={onNavigate} />
 
       {/* ─── POR QUÉ ELEGIRNOS ─── */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Foto de fondo */}
         <img src="/DSC00580.JPEG" alt="" aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-center" />
@@ -134,12 +134,12 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
 
         <div className="relative max-w-7xl mx-auto px-6 md:px-10">
 
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-            <div className="flex items-center gap-3 mb-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10">
+            <div className="flex items-center gap-3 mb-3">
               <div className="w-5 h-px bg-red-600" />
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500">Por qué elegirnos</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
+            <h2 className="text-2xl md:text-3xl font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
               No somos solo un proveedor.<br />Somos tu socio técnico.
             </h2>
           </motion.div>
@@ -147,18 +147,17 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
           <div className="divide-y divide-white/10">
             {[
               { n: '01', title: 'Respaldo técnico real', text: 'Fichas LEED, archivos CAD·BIM y soporte especializado desde el anteproyecto.' },
-              { n: '02', title: 'Instalación certificada', text: 'Equipo propio certificado VELUX. Garantía de fábrica de 10 años activada con cada obra.' },
-              { n: '03', title: 'Socio en cada etapa', text: 'Acompañamos el proyecto desde la especificación hasta la entrega, sin intermediarios.' },
-              { n: '04', title: 'Distribuidor oficial VELUX', text: 'Importador directo. Precio de distribuidor, stock permanente y soporte de marca.' },
+              { n: '02', title: 'Instalación certificada', text: 'Equipo propio certificado VELUX. Garantía de 10 años activada con cada obra.' },
+              { n: '03', title: 'Socio en cada etapa', text: 'Acompañamos desde la especificación hasta la entrega, sin intermediarios.' },
             ].map((item, idx) => (
               <motion.div key={idx}
-                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: idx * 0.07 }}
-                className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 cursor-default">
-                <span className="text-[11px] font-black text-white/30 tracking-widest shrink-0 w-8">{item.n}</span>
-                <h3 className="font-[1000] text-white text-xl md:text-2xl uppercase italic tracking-tight leading-none md:w-72 shrink-0 group-hover:text-red-500 transition-colors duration-200">{item.title}</h3>
+                className="group flex flex-col md:flex-row md:items-center gap-3 md:gap-10 py-5 cursor-default">
+                <span className="text-[10px] font-black text-white/30 tracking-widest shrink-0 w-8">{item.n}</span>
+                <h3 className="font-[1000] text-white text-base md:text-lg uppercase italic tracking-tight leading-none md:w-64 shrink-0 group-hover:text-red-500 transition-colors duration-200">{item.title}</h3>
                 <div className="hidden md:block h-px flex-1 bg-white/10 group-hover:bg-red-600/40 transition-colors duration-300" />
-                <p className="text-white/60 text-sm leading-relaxed md:max-w-sm">{item.text}</p>
+                <p className="text-white/55 text-sm leading-relaxed md:max-w-sm">{item.text}</p>
               </motion.div>
             ))}
           </div>
