@@ -81,7 +81,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             <div>
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">Portfolio de obras · 2026</span>
               <h2 className="text-4xl md:text-6xl font-[1000] text-[#1D1D1F] tracking-tighter leading-[0.88] uppercase italic mt-3">
-                Espacios que<br /><span className="text-amber-500">iluminamos.</span>
+                Espacios que<br /><span className="text-red-600">iluminamos.</span>
               </h2>
             </div>
             <p className="text-[#6E6E73] text-sm leading-relaxed max-w-xs">
@@ -117,7 +117,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             className="mb-12">
             <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">Aliados · Red de diseño</span>
             <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-              Arquitectos que<br />trabajan con <span className="text-amber-500">nosotros.</span>
+              Arquitectos que<br />trabajan con <span className="text-red-600">nosotros.</span>
             </h2>
           </motion.div>
 
@@ -142,7 +142,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
                 {/* Info below card */}
                 <p className="font-[1000] text-[#1D1D1F] text-xs uppercase italic tracking-tight leading-tight">{arq.name}</p>
                 <p className="text-[#6E6E73] text-[10px] font-black uppercase tracking-widest mt-0.5">{arq.studio}</p>
-                <p className="text-amber-500 text-[9px] font-black uppercase tracking-widest mt-0.5">{arq.city}</p>
+                <p className="text-red-600 text-[9px] font-black uppercase tracking-widest mt-0.5">{arq.city}</p>
               </motion.div>
             ))}
           </div>
@@ -156,7 +156,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             </p>
             <button
               onClick={() => onNavigate('contacto')}
-              className="inline-flex items-center gap-2 text-[#1D1D1F] hover:text-amber-500 font-black text-[10px] uppercase tracking-widest transition-colors cursor-pointer group/btn">
+              className="inline-flex items-center gap-2 text-[#1D1D1F] hover:text-red-600 font-black text-[10px] uppercase tracking-widest transition-colors cursor-pointer group/btn">
               Sumate a la red
               <ArrowRight size={11} className="group-hover/btn:translate-x-1 transition-transform" />
             </button>
@@ -172,7 +172,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">01 — Por qué especificarlo</span>
               <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-                Por qué los<br />arquitectos<br />eligen <span className="text-amber-500">VELUX</span>
+                Por qué los<br />arquitectos<br />eligen <span className="text-red-600">VELUX</span>
               </h2>
             </motion.div>
             <div className="hidden lg:block text-[160px] font-[1000] text-[#1D1D1F]/[0.03] leading-none italic uppercase select-none -mb-4">
@@ -191,7 +191,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
                   <span className="text-5xl font-[1000] italic text-[#1D1D1F]/[0.06] leading-none select-none">0{idx + 1}</span>
                 </div>
                 <div className="col-span-10 md:col-span-4">
-                  <div className="w-5 h-[2px] bg-amber-500 mb-3 group-hover:w-8 transition-all duration-300" />
+                  <div className="w-5 h-[2px] bg-red-600 mb-3 group-hover:w-8 transition-all duration-300" />
                   <h3 className="font-[1000] text-[#1D1D1F] text-sm md:text-base uppercase tracking-tight italic leading-snug">{item.title}</h3>
                 </div>
                 <div className="col-span-12 md:col-span-7 md:col-start-6">
@@ -242,7 +242,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">03 — Catálogo técnico</span>
               <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-3">
-                Productos más<br /><span className="text-amber-500">especificados</span>
+                Productos más<br /><span className="text-red-600">especificados</span>
               </h2>
             </motion.div>
           </div>
@@ -254,13 +254,13 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
                 variants={FV} initial="hidden" whileInView="visible" viewport={VP}
                 transition={{ delay: idx * 0.08 } as object}
                 className="group bg-white rounded-2xl p-8 md:p-10 hover:shadow-lg hover:shadow-black/5 transition-all duration-300 cursor-default">
-                <div className="w-5 h-[2px] bg-amber-500 mb-5 group-hover:w-10 transition-all duration-300" />
+                <div className="w-5 h-[2px] bg-red-600 mb-5 group-hover:w-10 transition-all duration-300" />
                 <h3 className="font-[1000] text-[#1D1D1F] text-sm md:text-base uppercase tracking-tight italic mb-3 leading-snug">{prod.title}</h3>
                 <p className="text-[#6E6E73] text-sm leading-relaxed mb-5">{prod.body}</p>
                 {prod.view && (
                   <button
                     onClick={() => onNavigate(prod.view as AppView)}
-                    className="inline-flex items-center gap-2 text-amber-500 hover:text-amber-600 font-[1000] text-[10px] uppercase tracking-widest italic transition-colors cursor-pointer group/btn">
+                    className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-[1000] text-[10px] uppercase tracking-widest italic transition-colors cursor-pointer group/btn">
                     Ver especificaciones técnicas
                     <ArrowRight size={12} className="group-hover/btn:translate-x-1 transition-transform" />
                   </button>
@@ -278,7 +278,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
           <motion.div variants={FVO} initial="hidden" whileInView="visible" viewport={VP} className="mb-14">
             <span className="text-[9px] font-black uppercase tracking-[0.5em] text-white/30">04 — Contacto</span>
             <h2 className="text-[52px] md:text-[80px] lg:text-[100px] font-[1000] tracking-tighter text-white leading-[0.85] uppercase italic mt-4">
-              Hablemos<br />de tu<br /><span className="text-amber-400">proyecto.</span>
+              Hablemos<br />de tu<br /><span className="text-red-500">proyecto.</span>
             </h2>
           </motion.div>
 
@@ -287,14 +287,14 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
             transition={{ delay: 0.15 } as object}
             className="border-t border-white/10 pt-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
             <ul className="flex flex-col sm:flex-row flex-wrap gap-5 sm:gap-8 text-white/40 text-[10px] font-black uppercase tracking-widest list-none p-0 m-0">
-              <li className="flex items-center gap-3"><span className="text-amber-400">—</span> Fichas técnicas y CAD por mail</li>
-              <li className="flex items-center gap-3"><span className="text-amber-400">—</span> Visita con muestras (coordinar)</li>
-              <li className="flex items-center gap-3"><span className="text-amber-400">—</span> Presupuesto sin cargo</li>
+              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Fichas técnicas y CAD por mail</li>
+              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Visita con muestras (coordinar)</li>
+              <li className="flex items-center gap-3"><span className="text-red-500">—</span> Presupuesto sin cargo</li>
             </ul>
             <div className="flex flex-col sm:flex-row gap-3 shrink-0">
               <button
                 onClick={() => onNavigate('contacto')}
-                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-amber-400 text-[#1D1D1F] font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
+                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-red-600 text-[#1D1D1F] font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
                 Consultar por un proyecto
                 <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
               </button>

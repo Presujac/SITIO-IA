@@ -54,7 +54,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({ onCTA }) => {
             <br />
             tus ambientes
             <br />
-            con <span className="text-green-500">luz natural</span>
+            con <span className="text-red-500">luz natural</span>
           </motion.h1>
 
           {/* Subtag */}

@@ -92,7 +92,7 @@ export const PortraitSlider: React.FC<{
       <div className="absolute bottom-0 left-0 right-0 z-10 px-4 pt-16 pb-4 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none">
         <div className="flex items-end justify-between">
           <div>
-            <span className="block text-[8px] font-black uppercase tracking-[0.42em] text-amber-400/70 mb-1">
+            <span className="block text-[8px] font-black uppercase tracking-[0.42em] text-red-500/70 mb-1">
               {pair.location}
             </span>
             <p className="text-xl font-[1000] uppercase italic text-white leading-none tracking-tighter">

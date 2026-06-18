@@ -256,8 +256,8 @@ const App: React.FC = () => {
                     {/* ESPACIOS QUE ILUMINAMOS */}
                     <section className="relative bg-[#0b0b0b] py-24 md:py-36 overflow-hidden">
                       {/* Ambient glows */}
-                      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-amber-500/[0.04] rounded-full blur-[140px] pointer-events-none" />
-                      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-sky-400/[0.04] rounded-full blur-[120px] pointer-events-none" />
+                      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-red-600/[0.04] rounded-full blur-[140px] pointer-events-none" />
+                      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
                       <div className="max-w-7xl mx-auto px-4 md:px-10">
 
@@ -267,8 +267,8 @@ const App: React.FC = () => {
                           className="mb-14 md:mb-20"
                         >
                           <div className="flex items-center gap-3 mb-6">
-                            <div className="w-8 h-px bg-amber-400/70" />
-                            <span className="text-amber-400/80 text-[9px] font-black uppercase tracking-[0.5em]">
+                            <div className="w-8 h-px bg-red-600" />
+                            <span className="text-red-500/80 text-[9px] font-black uppercase tracking-[0.5em]">
                               Portfolio · Obras reales 2026
                             </span>
                           </div>
@@ -276,7 +276,7 @@ const App: React.FC = () => {
                           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                             <h2 className="text-[clamp(2.8rem,7.5vw,6.5rem)] font-[1000] tracking-tighter text-white uppercase italic leading-[0.85]">
                               Espacios<br />
-                              que <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-amber-500">iluminamos.</span>
+                              que <span className="text-red-600">iluminamos.</span>
                             </h2>
 
                             <div className="max-w-sm shrink-0">
@@ -284,9 +284,9 @@ const App: React.FC = () => {
                                 Deslizá sobre cada foto para ver la transformación. Obras reales instaladas por nuestro equipo certificado VELUX.
                               </p>
                               <a href="https://instagram.com/techosjac" target="_blank" rel="noopener noreferrer"
-                                className="inline-flex items-center gap-4 border border-white/10 hover:border-amber-400/40 hover:bg-amber-400/5 text-white pl-6 pr-4 py-3.5 rounded-full text-[9px] font-black uppercase tracking-[0.3em] transition-all duration-500 group">
+                                className="inline-flex items-center gap-4 border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 text-white pl-6 pr-4 py-3.5 rounded-full text-[9px] font-black uppercase tracking-[0.3em] transition-all duration-500 group">
                                 Ver más en Instagram
-                                <div className="bg-white/8 group-hover:bg-amber-400/15 p-2 rounded-full transition-all">
+                                <div className="bg-white/8 group-hover:bg-red-500/15 p-2 rounded-full transition-all">
                                   <MoveRight size={12} />
                                 </div>
                               </a>
