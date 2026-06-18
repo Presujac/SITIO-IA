@@ -10,7 +10,6 @@ import { PortraitSlider, comparisons } from "./components/AD";
 
 // === LAZY (below-the-fold) components ===
 const FAQ = React.lazy(() => import("./components/FAQ"));
-const SuccessStories = React.lazy(() => import("./components/SuccessStories"));
 const ProductDetail = React.lazy(() => import("./components/ProductDetail"));
 const ShowroomBooking = React.lazy(() => import("./components/ShowroomBooking"));
 const HomeProducts = React.lazy(() => import("./components/HomeProducts"));
@@ -254,110 +253,60 @@ const App: React.FC = () => {
                     <HeroSlider onCTA={() => navigate("home", "wizard-anchor")} />
 
                     {/* ESPACIOS QUE ILUMINAMOS */}
-                    <section className="relative bg-[#0e0e0e] py-16 md:py-24 overflow-hidden">
-
-                      {/* Grain texture */}
-                      <div className="absolute inset-0 pointer-events-none opacity-[0.12]"
-                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '160px' }} />
-
-                      {/* Dot grid */}
-                      <div className="absolute inset-0 pointer-events-none opacity-[0.07]"
-                        style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-
-                      {/* Red glow — esquina superior izquierda */}
-                      <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full pointer-events-none"
-                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.18) 0%, transparent 65%)' }} />
-
-                      {/* Red glow — esquina inferior derecha */}
-                      <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.12) 0%, transparent 65%)' }} />
-
-                      {/* Spotlight central — simula luz desde arriba */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
-                        style={{ background: 'radial-gradient(ellipse at top, rgba(220,38,38,0.08) 0%, transparent 70%)' }} />
-
-                      {/* Top border glow rojo */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
-                        style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(220,38,38,0.6) 35%, rgba(220,38,38,0.6) 65%, transparent 95%)' }} />
-
-                      {/* Bottom border sutil */}
-                      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
-                        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 50%, transparent)' }} />
-
+                    <section className="bg-white py-20 md:py-28">
                       <div className="max-w-7xl mx-auto px-4 md:px-10">
 
                         {/* Header */}
                         <motion.div
-                          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                          className="mb-14 md:mb-20"
+                          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12"
                         >
-                          <div className="flex items-center gap-3 mb-4">
-                            <div className="w-6 h-px bg-red-600" />
-                            <span className="text-red-500/80 text-[9px] font-black uppercase tracking-[0.5em]">
-                              Portfolio · Obras reales 2026
-                            </span>
-                          </div>
-
-                          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-                            <h2 className="text-[clamp(1.8rem,4vw,3.5rem)] font-[1000] tracking-tighter text-white uppercase italic leading-[0.9]">
-                              Espacios que <span className="text-red-600">iluminamos.</span>
-                            </h2>
-
-                            <div className="max-w-sm shrink-0">
-                              <p className="text-white/35 text-sm leading-relaxed mb-6 font-light">
-                                Deslizá sobre cada foto para ver la transformación. Obras reales instaladas por nuestro equipo certificado VELUX.
-                              </p>
-                              <a href="https://instagram.com/techosjac" target="_blank" rel="noopener noreferrer"
-                                className="inline-flex items-center gap-4 border border-white/10 hover:border-red-500/30 hover:bg-red-500/5 text-white pl-6 pr-4 py-3.5 rounded-full text-[9px] font-black uppercase tracking-[0.3em] transition-all duration-500 group">
-                                Ver más en Instagram
-                                <div className="bg-white/8 group-hover:bg-red-500/15 p-2 rounded-full transition-all">
-                                  <MoveRight size={12} />
-                                </div>
-                              </a>
+                          <div>
+                            <div className="flex items-center gap-3 mb-4">
+                              <div className="w-10 h-[2px] bg-red-600" />
+                              <span className="text-red-600 text-[10px] font-black uppercase tracking-[0.45em] italic">
+                                Portfolio · Obras reales 2026
+                              </span>
                             </div>
+                            <h2 className="text-5xl md:text-7xl font-[1000] tracking-tighter text-slate-900 uppercase italic leading-[0.85]">
+                              Espacios<br />que <span className="text-red-600">iluminamos.</span>
+                            </h2>
+                          </div>
+                          <div className="max-w-xs">
+                            <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                              Pasá el mouse sobre cada foto para ver la transformación. Obras reales, instaladas por nuestro equipo certificado VELUX.
+                            </p>
+                            <a href="https://instagram.com/techosjac" target="_blank" rel="noopener noreferrer"
+                              className="inline-flex items-center gap-3 bg-slate-900 hover:bg-red-600 text-white pl-6 pr-3 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all duration-300 group">
+                              Ver más en Instagram
+                              <div className="bg-white/15 group-hover:bg-white/25 p-2 rounded-full transition-all">
+                                <MoveRight size={14} />
+                              </div>
+                            </a>
                           </div>
                         </motion.div>
 
-                        {/* Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
-                          <div className="md:row-span-2 min-h-[300px] md:min-h-0">
-                            <PortraitSlider pair={comparisons[0]} index={0} className="h-full min-h-[300px] md:min-h-0" />
+                        {/* Grid 3 col: portrait izquierda ocupa 2 filas, 4 landscape llenan 2x2 */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                          <div className="md:row-span-2 min-h-[260px] md:min-h-0">
+                            <PortraitSlider pair={comparisons[0]} index={0} className="h-full min-h-[260px] md:min-h-0" />
                           </div>
                           {comparisons.slice(1).map((pair, i) => (
                             <PortraitSlider key={pair.id} pair={pair} index={i + 1} aspectRatio="4/3" />
                           ))}
                         </div>
 
-                        {/* Stats row */}
-                        <motion.div
-                          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                          transition={{ delay: 0.2 }}
-                          className="mt-10 grid grid-cols-3 divide-x divide-white/5 border border-white/5 rounded-2xl overflow-hidden"
-                        >
-                          {[
-                            { n: '200+', label: 'Obras instaladas' },
-                            { n: '15', label: 'Años de experiencia' },
-                            { n: '100%', label: 'Instalación certificada' },
-                          ].map(({ n, label }) => (
-                            <div key={label} className="px-6 py-7 text-center bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
-                              <div className="text-2xl md:text-3xl font-[1000] text-white italic tracking-tighter mb-1">{n}</div>
-                              <div className="text-[8px] font-black uppercase tracking-[0.3em] text-white/25">{label}</div>
-                            </div>
-                          ))}
-                        </motion.div>
-
                       </div>
                     </section>
                     <div className="bg-white">
                       <Suspense fallback={<SectionFallback />}>
-                        <section id="wizard-anchor" className="bg-slate-950 py-16 md:py-24"><RoofWizard onNavigate={navigate} /></section>
+                        <section id="wizard-anchor"><RoofWizard onNavigate={navigate} /></section>
                       </Suspense>
                       <Suspense fallback={<SectionFallback />}><HomeProducts onNavigate={navigate} /></Suspense>
-                      <Suspense fallback={<SectionFallback />}><ServiceBanner /></Suspense>
                       <Suspense fallback={<SectionFallback />}><Tuneles /></Suspense>
+                      <Suspense fallback={<SectionFallback />}><ServiceBanner /></Suspense>
                       <Suspense fallback={<SectionFallback />}>
-                        <section id="success-stories" className="py-8 md:py-12"><SuccessStories /></section>
-                      </Suspense>
+                                              </Suspense>
                       <Suspense fallback={<SectionFallback />}><Reviews /></Suspense>
                       <Suspense fallback={<SectionFallback />}><InstagramWall /></Suspense>
                       <Suspense fallback={<SectionFallback />}>
