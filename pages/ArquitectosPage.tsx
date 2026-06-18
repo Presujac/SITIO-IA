@@ -123,27 +123,28 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
       <ArquitectosBanner onNavigate={onNavigate} />
 
       {/* ─── POR QUÉ ELEGIRNOS ─── */}
-      <section className="relative bg-[#111] py-20 md:py-28 overflow-hidden">
+      <section className="relative py-20 md:py-28 overflow-hidden">
         {/* Foto de fondo */}
         <img src="/DSC00580.JPEG" alt="" aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-[0.07]" />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#111]/90" />
-        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.3) 50%, transparent)' }} />
+          className="absolute inset-0 w-full h-full object-cover object-center" />
+        {/* Overlay fuerte para legibilidad */}
+        <div className="absolute inset-0" style={{ background: 'rgba(10,10,10,0.82)' }} />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 50%, transparent)' }} />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-white/5" />
 
-        <div className="max-w-7xl mx-auto px-6 md:px-10">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10">
 
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-5 h-px bg-red-600" />
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500/60">Por qué elegirnos</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500">Por qué elegirnos</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
               No somos solo un proveedor.<br />Somos tu socio técnico.
             </h2>
           </motion.div>
 
-          <div className="divide-y divide-white/6">
+          <div className="divide-y divide-white/10">
             {[
               { n: '01', title: 'Respaldo técnico real', text: 'Fichas LEED, archivos CAD·BIM y soporte especializado desde el anteproyecto.' },
               { n: '02', title: 'Instalación certificada', text: 'Equipo propio certificado VELUX. Garantía de fábrica de 10 años activada con cada obra.' },
@@ -153,11 +154,11 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
               <motion.div key={idx}
                 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: idx * 0.07 }}
-                className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8">
-                <span className="text-[11px] font-black text-white/15 tracking-widest shrink-0 w-8">{item.n}</span>
-                <h3 className="font-[1000] text-white text-lg md:text-xl uppercase italic tracking-tight leading-none md:w-72 shrink-0 group-hover:text-red-500 transition-colors duration-200">{item.title}</h3>
-                <div className="hidden md:block h-px flex-1 bg-white/8 group-hover:bg-red-600/30 transition-colors duration-300" />
-                <p className="text-white/35 text-sm leading-relaxed md:max-w-sm">{item.text}</p>
+                className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8 cursor-default">
+                <span className="text-[11px] font-black text-white/30 tracking-widest shrink-0 w-8">{item.n}</span>
+                <h3 className="font-[1000] text-white text-xl md:text-2xl uppercase italic tracking-tight leading-none md:w-72 shrink-0 group-hover:text-red-500 transition-colors duration-200">{item.title}</h3>
+                <div className="hidden md:block h-px flex-1 bg-white/10 group-hover:bg-red-600/40 transition-colors duration-300" />
+                <p className="text-white/60 text-sm leading-relaxed md:max-w-sm">{item.text}</p>
               </motion.div>
             ))}
           </div>
