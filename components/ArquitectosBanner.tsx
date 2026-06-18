@@ -5,125 +5,106 @@ import type { AppNavigate } from '../App';
 
 interface Props { onNavigate: AppNavigate; }
 
-const FV = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } } };
-const VP = { once: true, margin: '-40px' };
-
-const STATS = [
-  { value: '+4.000', label: 'Ventanas instaladas' },
-  { value: '10 años', label: 'Garantía de fábrica' },
-  { value: 'CAD·BIM', label: 'Archivos técnicos' },
-];
+const FV = (delay = 0) => ({
+  initial: { opacity: 0, y: 28 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] } },
+});
 
 const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
   return (
-    <section className="relative bg-white overflow-hidden pt-20 md:pt-24">
+    <section className="relative bg-[#0e0e0e] min-h-screen flex flex-col justify-center overflow-hidden">
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[90vh]">
+      {/* ── Fondos decorativos ── */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+        style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+      <div className="absolute -top-60 -left-60 w-[700px] h-[700px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.15) 0%, transparent 65%)' }} />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.10) 0%, transparent 65%)' }} />
+      <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(220,38,38,0.55) 40%, rgba(220,38,38,0.55) 60%, transparent 95%)' }} />
 
-        {/* Copy — left */}
-        <div className="flex flex-col justify-center px-8 md:px-14 lg:px-20 py-14 lg:py-0 order-2 lg:order-1">
+      {/* ── Contenido ── */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-14 w-full py-28 md:py-36">
 
-          <motion.div variants={FV} initial="hidden" animate="visible">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F5F7] text-[#1D1D1F] text-[9px] font-black uppercase tracking-[0.35em] mb-8">
-              Para Arquitectos y Estudios de Diseño
-            </span>
-          </motion.div>
+        {/* Badge VELUX */}
+        <motion.div {...FV(0)} className="mb-10">
+          <span className="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white/60 text-[9px] font-black uppercase tracking-[0.4em] px-4 py-2.5 rounded-full">
+            <span className="w-1.5 h-1.5 bg-red-600 rounded-full" />
+            Distribuidor Oficial VELUX · Argentina
+          </span>
+        </motion.div>
 
-          <motion.h1
-            variants={FV} initial="hidden" animate="visible"
-            transition={{ delay: 0.05 }}
-            className="text-[48px] md:text-[60px] lg:text-[68px] font-[1000] text-[#1D1D1F] tracking-tighter leading-[0.9] mb-6 uppercase italic">
-            Proyectá los<br />espacios que tus<br />clientes<br />
-            <span className="text-amber-500">van a recordar.</span>
+        {/* Headline */}
+        <div className="max-w-5xl">
+          <motion.h1 {...FV(0.07)}
+            className="text-[clamp(3rem,8vw,7.5rem)] font-[1000] text-white tracking-tighter leading-[0.85] uppercase italic mb-8">
+            Formá parte<br />
+            de algo más<br />
+            <span className="text-red-600">grande.</span>
           </motion.h1>
 
-          <motion.p
-            variants={FV} initial="hidden" animate="visible"
-            transition={{ delay: 0.1 }}
-            className="text-[#6E6E73] text-base leading-relaxed mb-10 max-w-sm">
-            Distribuidor oficial VELUX en Argentina. Soporte técnico especializado, muestras físicas y archivos CAD·BIM desde el anteproyecto hasta la entrega de obra.
+          <motion.p {...FV(0.14)}
+            className="text-white/40 text-base md:text-lg leading-relaxed max-w-xl mb-12 font-light">
+            La comunidad de arquitectos que trabajan con Techos JAC y VELUX. Respaldo técnico, especificación precisa y soporte en cada etapa del proyecto.
           </motion.p>
-
-          {/* Stats */}
-          <motion.div
-            variants={FV} initial="hidden" animate="visible"
-            transition={{ delay: 0.15 }}
-            className="grid grid-cols-3 gap-6 mb-10 pb-10 border-b border-[#D2D2D7]">
-            {STATS.map((stat, idx) => (
-              <div key={idx}>
-                <div className="text-xl md:text-2xl font-[1000] italic text-[#1D1D1F] tracking-tight mb-1">{stat.value}</div>
-                <div className="text-[#6E6E73] text-[9px] uppercase tracking-wider font-black leading-tight">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            variants={FV} initial="hidden" animate="visible"
-            transition={{ delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => onNavigate('contacto')}
-              className="group flex-1 sm:flex-none inline-flex items-center justify-center gap-3 bg-[#1D1D1F] hover:bg-black text-white font-black uppercase tracking-widest text-[10px] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer">
-              Hablar con un especialista
-              <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={() => document.getElementById('arquitectos-content')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 border border-[#D2D2D7] hover:border-[#1D1D1F] text-[#1D1D1F] font-black uppercase tracking-widest text-[10px] px-7 py-4 rounded-full transition-all duration-300 cursor-pointer">
-              Ver servicios
-              <ArrowDown size={12} />
-            </button>
-          </motion.div>
-
         </div>
 
-        {/* Foto grid — right */}
-        <div className="relative order-1 lg:order-2 h-[55vw] max-h-[560px] lg:h-auto lg:max-h-none overflow-hidden bg-[#F5F5F7]">
-          <div className="grid grid-cols-2 grid-rows-2 gap-2 h-full p-2">
+        {/* Stats */}
+        <motion.div {...FV(0.2)}
+          className="flex flex-wrap gap-x-12 gap-y-6 mb-14 pb-14 border-b border-white/8">
+          {[
+            { n: '+50', label: 'Estudios activos' },
+            { n: '4.000+', label: 'Ventanas instaladas' },
+            { n: '15 años', label: 'Respaldo técnico' },
+          ].map(({ n, label }) => (
+            <div key={label}>
+              <p className="text-3xl md:text-4xl font-[1000] italic text-white tracking-tighter leading-none mb-1">{n}</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.4em] text-white/30">{label}</p>
+            </div>
+          ))}
+        </motion.div>
 
-            <motion.div
-              variants={FV} initial="hidden" animate="visible"
-              transition={{ delay: 0.1 }}
-              className="row-span-2 relative overflow-hidden rounded-2xl bg-[#E8E8ED]">
-              <img src="/AD2.jpeg" alt="Living con ventana VELUX · Pilar" loading="lazy"
-                className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 ease-out" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <span className="inline-block bg-white/80 backdrop-blur-sm text-[#1D1D1F] text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
-                  Living · Pilar
-                </span>
-              </div>
-            </motion.div>
+        {/* CTAs */}
+        <motion.div {...FV(0.25)} className="flex flex-col sm:flex-row gap-3">
+          <button
+            onClick={() => document.getElementById('form-comunidad')?.scrollIntoView({ behavior: 'smooth' })}
+            className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-red-600 text-[#1D1D1F] hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
+            Sumate a la comunidad
+            <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button
+            onClick={() => document.getElementById('arquitectos-content')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center justify-center gap-2 border border-white/12 hover:border-white/30 text-white/50 hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
+            Ver más
+            <ArrowDown size={12} />
+          </button>
+        </motion.div>
 
-            <motion.div
-              variants={FV} initial="hidden" animate="visible"
-              transition={{ delay: 0.2 }}
-              className="relative overflow-hidden rounded-2xl bg-[#E8E8ED]">
-              <img src="/AD4.jpeg" alt="Escalera con luz natural · Nordelta" loading="lazy"
-                className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 ease-out" />
-              <div className="absolute bottom-3 left-3">
-                <span className="inline-block bg-white/80 backdrop-blur-sm text-[#1D1D1F] text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
-                  Escalera · Nordelta
-                </span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={FV} initial="hidden" animate="visible"
-              transition={{ delay: 0.3 }}
-              className="relative overflow-hidden rounded-2xl bg-[#E8E8ED]">
-              <img src="/AD10.jpeg" alt="Altillo con ventana VELUX · Pilar" loading="lazy"
-                className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700 ease-out" />
-              <div className="absolute bottom-3 left-3">
-                <span className="inline-block bg-white/80 backdrop-blur-sm text-[#1D1D1F] text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full">
-                  Altillo · Pilar
-                </span>
-              </div>
-            </motion.div>
-
-          </div>
+        {/* Fotos flotantes — decorativas, esquina inferior derecha */}
+        <div className="hidden lg:flex absolute bottom-12 right-14 gap-3 items-end">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="w-40 h-52 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 rotate-[-3deg]">
+            <img src="/AD2.jpeg" alt="Proyecto Living" loading="lazy" className="w-full h-full object-cover" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="w-44 h-60 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
+            <img src="/AD4.jpeg" alt="Proyecto Escalera" loading="lazy" className="w-full h-full object-cover" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="w-36 h-48 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 rotate-[2deg]">
+            <img src="/living_room.jpg" alt="Proyecto interior" loading="lazy" className="w-full h-full object-cover" />
+          </motion.div>
         </div>
 
       </div>
+
     </section>
   );
 };
