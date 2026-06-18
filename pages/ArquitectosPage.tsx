@@ -122,76 +122,43 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
 
       <ArquitectosBanner onNavigate={onNavigate} />
 
-      {/* ─── POR QUÉ + SERVICIOS UNIFICADO ─── */}
+      {/* ─── POR QUÉ ELEGIRNOS ─── */}
       <section className="relative bg-[#111] py-20 md:py-28 overflow-hidden">
-
         <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
           style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute top-0 inset-x-0 h-px bg-white/5" />
-        <div className="absolute bottom-0 inset-x-0 h-px bg-white/5" />
+        <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.3) 50%, transparent)' }} />
 
         <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          {/* Header */}
-          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="mb-14 pb-12 border-b border-white/8">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-5 h-px bg-red-600" />
-              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500/70">El socio técnico</span>
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-500/60">Por qué elegirnos</span>
             </div>
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-              <h2 className="text-3xl md:text-[2.8rem] font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
-                Por qué los arquitectos<br />eligen trabajar con nosotros.
-              </h2>
-              <p className="text-white/30 text-sm leading-relaxed max-w-xs font-light shrink-0">
-                Desde el primer boceto hasta la entrega de obra, somos el respaldo técnico de tu estudio.
-              </p>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-[1000] tracking-tighter text-white leading-[0.9] uppercase italic">
+              No somos solo un proveedor.<br />Somos tu socio técnico.
+            </h2>
           </motion.div>
 
-          {/* Dos columnas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-0 lg:divide-x divide-white/8">
-
-            {/* Izquierda — razones */}
-            <div className="lg:pr-16">
-              <p className="text-[8px] font-black uppercase tracking-[0.5em] text-white/20 mb-8">Razones para especificarnos</p>
-              <div className="divide-y divide-white/6">
-                {WHY.map((item, idx) => (
-                  <motion.div key={idx}
-                    initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-                    transition={{ delay: idx * 0.08 }}
-                    className="group py-7 flex gap-5 items-start">
-                    <span className="text-[10px] font-black text-white/12 tracking-widest pt-0.5 shrink-0 tabular-nums">0{idx + 1}</span>
-                    <div>
-                      <div className="w-4 h-[1.5px] bg-red-600 mb-3 group-hover:w-6 transition-all duration-300" />
-                      <h3 className="font-[1000] text-white text-sm uppercase italic tracking-tight mb-2">{item.title}</h3>
-                      <p className="text-white/35 text-xs leading-relaxed">{item.body}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Derecha — servicios */}
-            <div className="lg:pl-16">
-              <p className="text-[8px] font-black uppercase tracking-[0.5em] text-white/20 mb-8">Servicios para tu estudio</p>
-              <div className="grid grid-cols-2 gap-px bg-white/5 rounded-2xl overflow-hidden">
-                {SERVICES.map(({ Icon, title, body }, idx) => (
-                  <motion.div key={idx}
-                    initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                    transition={{ delay: idx * 0.06 }}
-                    className="group bg-[#111] hover:bg-white/[0.04] transition-colors duration-200 p-6 cursor-default">
-                    <div className="w-8 h-8 rounded-lg bg-white/5 group-hover:bg-red-600/15 flex items-center justify-center mb-4 transition-colors duration-200">
-                      <Icon size={14} className="text-white/35 group-hover:text-red-500 transition-colors duration-200" />
-                    </div>
-                    <h3 className="font-[1000] text-white text-[11px] uppercase italic tracking-tight mb-1.5 leading-snug">{title}</h3>
-                    <p className="text-white/30 text-[11px] leading-relaxed">{body}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
+          <div className="divide-y divide-white/6">
+            {[
+              { n: '01', title: 'Respaldo técnico real', text: 'Fichas LEED, archivos CAD·BIM y soporte especializado desde el anteproyecto.' },
+              { n: '02', title: 'Instalación certificada', text: 'Equipo propio certificado VELUX. Garantía de fábrica de 10 años activada con cada obra.' },
+              { n: '03', title: 'Socio en cada etapa', text: 'Acompañamos el proyecto desde la especificación hasta la entrega, sin intermediarios.' },
+              { n: '04', title: 'Distribuidor oficial VELUX', text: 'Importador directo. Precio de distribuidor, stock permanente y soporte de marca.' },
+            ].map((item, idx) => (
+              <motion.div key={idx}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: idx * 0.07 }}
+                className="group flex flex-col md:flex-row md:items-center gap-4 md:gap-12 py-8">
+                <span className="text-[11px] font-black text-white/15 tracking-widest shrink-0 w-8">{item.n}</span>
+                <h3 className="font-[1000] text-white text-lg md:text-xl uppercase italic tracking-tight leading-none md:w-72 shrink-0 group-hover:text-red-500 transition-colors duration-200">{item.title}</h3>
+                <div className="hidden md:block h-px flex-1 bg-white/8 group-hover:bg-red-600/30 transition-colors duration-300" />
+                <p className="text-white/35 text-sm leading-relaxed md:max-w-sm">{item.text}</p>
+              </motion.div>
+            ))}
           </div>
+
         </div>
       </section>
 
