@@ -43,9 +43,17 @@ const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
           <motion.h1
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.08, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[clamp(3rem,7.5vw,7rem)] font-[1000] text-white tracking-tighter leading-[0.88] uppercase italic mb-8">
-            Comunidad<br />
-            de <span className="text-red-600">Arquitectos.</span>
+            className="text-[clamp(2rem,4.5vw,4.5rem)] font-[1000] tracking-tighter leading-[0.9] uppercase italic mb-8">
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(135deg, #ffffff 40%, rgba(255,255,255,0.45) 100%)' }}>
+              Comunidad<br />de{' '}
+            </span>
+            <span
+              className="text-transparent bg-clip-text"
+              style={{ backgroundImage: 'linear-gradient(135deg, #ef4444 30%, #991b1b 100%)' }}>
+              Arquitectos.
+            </span>
           </motion.h1>
 
           {/* Bajada */}
