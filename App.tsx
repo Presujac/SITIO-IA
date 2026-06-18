@@ -254,10 +254,35 @@ const App: React.FC = () => {
                     <HeroSlider onCTA={() => navigate("home", "wizard-anchor")} />
 
                     {/* ESPACIOS QUE ILUMINAMOS */}
-                    <section className="relative bg-[#0b0b0b] py-24 md:py-36 overflow-hidden">
-                      {/* Ambient glows */}
-                      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-red-600/[0.04] rounded-full blur-[140px] pointer-events-none" />
-                      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/[0.02] rounded-full blur-[120px] pointer-events-none" />
+                    <section className="relative bg-[#0e0e0e] py-24 md:py-36 overflow-hidden">
+
+                      {/* Grain texture */}
+                      <div className="absolute inset-0 pointer-events-none opacity-[0.18]"
+                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`, backgroundSize: '180px' }} />
+
+                      {/* Red glow top-left — grande y suave */}
+                      <div className="absolute -top-32 -left-32 w-[700px] h-[700px] rounded-full pointer-events-none"
+                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.13) 0%, transparent 70%)' }} />
+
+                      {/* Red glow bottom-right */}
+                      <div className="absolute -bottom-20 -right-20 w-[500px] h-[500px] rounded-full pointer-events-none"
+                        style={{ background: 'radial-gradient(circle, rgba(220,38,38,0.10) 0%, transparent 70%)' }} />
+
+                      {/* Warm center glow */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full pointer-events-none"
+                        style={{ background: 'radial-gradient(ellipse, rgba(220,38,38,0.06) 0%, transparent 65%)' }} />
+
+                      {/* Diagonal grid lines */}
+                      <div className="absolute inset-0 pointer-events-none opacity-[0.035]"
+                        style={{ backgroundImage: 'repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 1px, transparent 60px)', backgroundSize: '85px 85px' }} />
+
+                      {/* Top border glow */}
+                      <div className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+                        style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 30%, rgba(220,38,38,0.4) 70%, transparent)' }} />
+
+                      {/* Bottom border glow */}
+                      <div className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
+                        style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 50%, transparent)' }} />
 
                       <div className="max-w-7xl mx-auto px-4 md:px-10">
 
