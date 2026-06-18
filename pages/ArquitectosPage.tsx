@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Building2, Award, Wrench, Package, BookOpen, MessageCircle, ArrowRight } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
@@ -49,6 +49,50 @@ const PRODUCTS: { title: string; body: string; view: AppView | null }[] = [
   { title: 'Cortinas y control solar', body: 'Blackout, plisadas, venecianas y persianas de protección solar. Especificables por modelo de ventana y orientación. Versión manual y motorizada.', view: null },
 ];
 
+const FEATURED: { name: string; studio: string; city: string; photo: string; project: string; quote: string; description: string; category: string; cta: string }[] = [
+  {
+    name: 'Yago',
+    studio: 'Estudio Yago',
+    city: 'Buenos Aires',
+    photo: '/marcela.jpeg',
+    project: '/AD2.jpeg',
+    category: 'Iluminación natural · Vivienda',
+    quote: 'La luz natural transforma completamente la experiencia de un espacio.',
+    description: 'Yago lleva más de 10 años especificando soluciones VELUX en proyectos residenciales de alta gama. Su enfoque coloca la iluminación cenital como variable de diseño desde el primer boceto.',
+    cta: 'Ver proyecto',
+  },
+  {
+    name: 'Agos',
+    studio: 'Agos Arquitectura',
+    city: 'Nordelta',
+    photo: '/officia.jpeg',
+    project: '/living_room.jpg',
+    category: 'Diseño de interiores · Proyecto',
+    quote: 'Cada apertura en el techo es una oportunidad para conectar interior y exterior.',
+    description: 'Agos integra ventanas de techo desde la etapa de anteproyecto, logrando que la luz sea un material más en la paleta de diseño. Sus espacios comunican calidez sin renunciar a la eficiencia energética.',
+    cta: 'Conocer su trabajo',
+  },
+  {
+    name: 'Sara',
+    studio: 'Sara Diseño',
+    city: 'San Isidro',
+    photo: '/cholila.jpeg',
+    project: '/kitchen.jpg',
+    category: 'Arquitectura sustentable · LEED',
+    quote: 'La arquitectura no solo se ve, también se siente a través de la luz.',
+    description: 'Sara trabaja en proyectos de certificación energética donde la ventilación natural y la iluminación cenital son requisitos técnicos. Con VELUX, logra cumplir normativas sin comprometer la estética.',
+    cta: 'Leer entrevista',
+  },
+];
+
+const INTERESTS = [
+  'Recibir catálogo VELUX',
+  'Solicitar asesoramiento técnico',
+  'Mostrar un proyecto',
+  'Participar de entrevistas',
+  'Capacitación profesional',
+];
+
 const ARCHITECTS = [
   { name: 'Arq. María González', studio: 'MG Arquitectura', city: 'Pilar', photo: '/living_room.jpg' },
   { name: 'Arq. Carlos Herrera', studio: 'Herrera & Asociados', city: 'Nordelta', photo: '/kitchen.jpg' },
@@ -59,6 +103,14 @@ const ARCHITECTS = [
 ];
 
 const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
+  const [form, setForm] = useState({ nombre: '', estudio: '', email: '', telefono: '', ciudad: '', web: '', interes: '' });
+  const [sent, setSent] = useState(false);
+
+  const handleForm = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSent(true);
+  };
+
   useSEO({
     title: 'VELUX para Arquitectos y Estudios de Diseño | Techos JAC Argentina',
     description: 'Soluciones VELUX para proyectos de arquitectura en Argentina. Muestras, planillas técnicas, fichas LEED y soporte especializado para estudios de diseño. Distribuidor oficial.',
@@ -268,6 +320,212 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
               </motion.article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─── COMUNIDAD DE ARQUITECTOS ─── */}
+      <section className="bg-white py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-6 h-[2px] bg-red-600" />
+              <span className="text-[9px] font-black uppercase tracking-[0.5em] text-red-600">Red JAC · Comunidad</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.88] uppercase italic mt-2">
+              Arquitectos que<br />hacen historia.
+            </h2>
+            <p className="text-[#6E6E73] text-sm leading-relaxed max-w-lg mt-4">
+              Tres estudios. Tres visiones sobre la luz natural. Proyectos reales desarrollados con el respaldo técnico de Techos JAC y VELUX.
+            </p>
+          </motion.div>
+
+          {FEATURED.map((arq, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              className={`flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-16 items-center py-14 border-t border-[#E5E5E7]`}
+            >
+              {/* Imagen del proyecto */}
+              <div className="w-full md:w-1/2">
+                <div className="relative overflow-hidden rounded-2xl bg-[#F5F5F7]" style={{ aspectRatio: '4/3' }}>
+                  <img src={arq.project} alt={`Proyecto de ${arq.name}`} loading="lazy"
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700" />
+                  {/* Badge del arquitecto sobre la foto */}
+                  <div className="absolute bottom-4 left-4">
+                    <div className="flex items-center gap-2.5 bg-white/90 backdrop-blur-md rounded-full pl-1.5 pr-4 py-1.5 shadow-lg">
+                      <div className="w-7 h-7 rounded-full overflow-hidden bg-slate-200 flex-shrink-0 ring-2 ring-white">
+                        <img src={arq.photo} alt={arq.name} className="w-full h-full object-cover" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] font-black uppercase tracking-wide text-slate-900 leading-none">{arq.name}</p>
+                        <p className="text-[9px] text-slate-400 font-medium leading-none mt-0.5">{arq.city}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contenido editorial */}
+              <div className="w-full md:w-1/2">
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-[#6E6E73]">{arq.category}</span>
+                <blockquote className="text-2xl md:text-3xl font-[1000] italic tracking-tighter text-[#1D1D1F] leading-[1.1] mt-3 mb-5">
+                  "{arq.quote}"
+                </blockquote>
+                <p className="text-[#6E6E73] text-sm leading-relaxed mb-7">{arq.description}</p>
+                <button
+                  onClick={() => onNavigate('contacto')}
+                  className="inline-flex items-center gap-2 text-[#1D1D1F] hover:text-red-600 font-[1000] text-[10px] uppercase tracking-widest italic transition-colors cursor-pointer group/btn border-b border-[#1D1D1F]/30 hover:border-red-600 pb-0.5">
+                  {arq.cta}
+                  <ArrowRight size={11} className="group-hover/btn:translate-x-1 transition-transform" />
+                </button>
+              </div>
+            </motion.div>
+          ))}
+
+        </div>
+      </section>
+
+      {/* ─── CTA COMUNIDAD ─── */}
+      <section className="relative bg-[#111] py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-[0.06]"
+          style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute top-0 left-0 right-0 h-[2px] pointer-events-none"
+          style={{ background: 'linear-gradient(90deg, transparent 5%, rgba(220,38,38,0.6) 40%, rgba(220,38,38,0.6) 60%, transparent 95%)' }} />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse, rgba(220,38,38,0.1) 0%, transparent 65%)' }} />
+
+        <div className="max-w-3xl mx-auto px-6 md:px-10 text-center">
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <span className="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 text-red-500 text-[9px] font-black uppercase tracking-[0.4em] px-4 py-2 rounded-full mb-7">
+              <span className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+              Para arquitectos
+            </span>
+            <h2 className="text-5xl md:text-7xl font-[1000] tracking-tighter text-white leading-[0.85] uppercase italic mb-5">
+              ¿Sos<br />arquitecto?
+            </h2>
+            <p className="text-white/40 text-base leading-relaxed mb-10 max-w-md mx-auto">
+              Formá parte de nuestra comunidad. Compartí proyectos, accedé al respaldo técnico de VELUX y conectá con otros estudios de diseño.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => document.getElementById('form-comunidad')?.scrollIntoView({ behavior: 'smooth' })}
+                className="group inline-flex items-center justify-center gap-3 bg-white hover:bg-red-600 text-[#1D1D1F] hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
+                Solicitar catálogo completo
+                <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={() => document.getElementById('form-comunidad')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center justify-center gap-2 border border-white/15 hover:border-red-500/40 text-white/60 hover:text-white font-[1000] uppercase tracking-widest text-[10px] italic px-8 py-4 rounded-full transition-all duration-300 cursor-pointer">
+                Quiero sumarme
+                <ArrowRight size={11} />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── FORMULARIO COMUNIDAD ─── */}
+      <section id="form-comunidad" className="bg-[#F5F5F7] py-20 md:py-28">
+        <div className="max-w-2xl mx-auto px-6 md:px-10">
+
+          <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center">
+            <span className="text-[9px] font-black uppercase tracking-[0.5em] text-[#6E6E73]">05 — Sumate</span>
+            <h2 className="text-3xl md:text-5xl font-[1000] tracking-tighter text-[#1D1D1F] leading-[0.9] uppercase italic mt-3">
+              Empezá acá.
+            </h2>
+            <p className="text-[#6E6E73] text-sm leading-relaxed mt-3 max-w-sm mx-auto">
+              Completá tus datos y te contactamos para hablar de tu próximo proyecto.
+            </p>
+          </motion.div>
+
+          {sent ? (
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+              className="bg-white rounded-3xl p-12 text-center border border-[#D2D2D7]">
+              <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-5">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10l4 4 8-8" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <h3 className="text-xl font-[1000] uppercase italic tracking-tighter text-[#1D1D1F] mb-2">¡Nos vemos pronto!</h3>
+              <p className="text-[#6E6E73] text-sm">Te contactamos en menos de 24 horas hábiles.</p>
+            </motion.div>
+          ) : (
+            <motion.form
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              onSubmit={handleForm}
+              className="bg-white rounded-3xl p-8 md:p-10 border border-[#D2D2D7] space-y-5">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Nombre y apellido *</label>
+                  <input required type="text" placeholder="Ej: María González"
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} />
+                </div>
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Estudio de arquitectura</label>
+                  <input type="text" placeholder="Ej: MG Arquitectura"
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.estudio} onChange={e => setForm({ ...form, estudio: e.target.value })} />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Email profesional *</label>
+                  <input required type="email" placeholder="vos@estudio.com"
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                </div>
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Teléfono</label>
+                  <input type="tel" placeholder="+54 9 11 ..."
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.telefono} onChange={e => setForm({ ...form, telefono: e.target.value })} />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Ciudad</label>
+                  <input type="text" placeholder="Buenos Aires"
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.ciudad} onChange={e => setForm({ ...form, ciudad: e.target.value })} />
+                </div>
+                <div>
+                  <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-2">Web o Instagram</label>
+                  <input type="text" placeholder="@estudio o www.estudio.com"
+                    className="w-full bg-[#F5F5F7] border-0 rounded-xl px-4 py-3.5 text-sm text-[#1D1D1F] font-medium outline-none focus:ring-2 ring-red-600 transition-all placeholder:text-[#B0B0B5]"
+                    value={form.web} onChange={e => setForm({ ...form, web: e.target.value })} />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-[9px] font-black uppercase tracking-widest text-[#6E6E73] mb-3">Interés principal</label>
+                <div className="flex flex-wrap gap-2">
+                  {INTERESTS.map(opt => (
+                    <button key={opt} type="button"
+                      onClick={() => setForm({ ...form, interes: opt })}
+                      className={`px-3.5 py-2 rounded-full text-[9px] font-black uppercase tracking-wide transition-all cursor-pointer ${form.interes === opt ? 'bg-red-600 text-white' : 'bg-[#F5F5F7] text-[#6E6E73] hover:bg-[#E5E5E7]'}`}>
+                      {opt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button type="submit"
+                className="w-full bg-[#1D1D1F] hover:bg-red-600 text-white font-[1000] uppercase tracking-widest text-[10px] italic py-5 rounded-2xl transition-all duration-300 cursor-pointer mt-2">
+                Enviar y sumarme a la comunidad →
+              </button>
+
+              <p className="text-center text-[9px] text-[#B0B0B5] font-medium">
+                Tu información es confidencial. No compartimos tus datos con terceros.
+              </p>
+            </motion.form>
+          )}
+
         </div>
       </section>
 
