@@ -11,7 +11,7 @@ const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
 
       {/* Foto de fondo */}
       <img
-        src="/arq.JPEG"
+        src="/DSC02242.JPEG"
         alt="Comunidad de Arquitectos"
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
