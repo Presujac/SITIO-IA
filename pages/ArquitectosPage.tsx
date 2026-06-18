@@ -124,8 +124,12 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
 
       {/* ─── POR QUÉ ELEGIRNOS ─── */}
       <section className="relative bg-[#111] py-20 md:py-28 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-          style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        {/* Foto de fondo */}
+        <img src="/DSC00580.JPEG" alt="" aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-20" />
+        {/* Overlay degradado */}
+        <div className="absolute inset-0"
+          style={{ background: 'linear-gradient(to right, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.75) 60%, rgba(10,10,10,0.55) 100%)' }} />
         <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.3) 50%, transparent)' }} />
 
         <div className="max-w-7xl mx-auto px-6 md:px-10">
