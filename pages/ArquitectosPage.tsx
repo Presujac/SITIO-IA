@@ -126,7 +126,7 @@ const ArquitectosPage: React.FC<Props> = ({ onNavigate }) => {
       <section className="relative py-12 md:py-16 overflow-hidden">
         {/* Foto de fondo */}
         <img src="/DSC00580.JPEG" alt="" aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover object-[center_10%]" />
+          className="absolute inset-0 w-full h-full object-cover object-[center_-10%]" />
         {/* Overlay fuerte para legibilidad */}
         <div className="absolute inset-0" style={{ background: 'rgba(10,10,10,0.82)' }} />
         <div className="absolute top-0 inset-x-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, rgba(220,38,38,0.4) 50%, transparent)' }} />
