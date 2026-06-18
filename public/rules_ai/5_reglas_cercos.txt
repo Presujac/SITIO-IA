@@ -1,0 +1,7 @@
+REGLAS DE CERCOS
+
+- GGL / GGU / GPL → cerco EDW + código con letra K (ej: EDW MK04).
+- FS / VSS → cerco EDW + código sin letra K (ej: EDW M04).
+
+IMPORTANTE:
+El cerco no es opcional. Es fundamental para la correcta instalación y estanqueidad.

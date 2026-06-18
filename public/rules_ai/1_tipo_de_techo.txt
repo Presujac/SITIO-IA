@@ -1,0 +1,9 @@
+TIPO DE TECHO – CLASIFICACIÓN
+
+- Techo inclinado: tiene pendiente. Puede ser de chapa, teja, madera o losa con caída.
+- Techo plano: completamente horizontal, como una losa tipo terraza o galería sin pendiente.
+
+Regla:
+→ Si el techo es de losa pero tiene pendiente, se considera techo inclinado.
+→ Confirmar siempre si hay caída antes de decidir.
+2_modelos_techo_inclinado.txt

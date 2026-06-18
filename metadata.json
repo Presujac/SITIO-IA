@@ -1,0 +1,8 @@
+{
+  "name": "Techos JAC - Soluciones Integrales",
+  "description": "Sitio web renovado para Techos JAC con herramientas de IA avanzadas para visualización y diagnóstico de techos.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

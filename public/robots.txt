@@ -1,0 +1,10 @@
+﻿User-agent: *
+Allow: /
+
+# Bloqueamos panel admin
+Disallow: /admin
+
+# Assets: permitir todo para que Googlebot pueda renderizar el JS
+Allow: /assets/
+
+Sitemap: https://techosjac.com.ar/sitemap.xml
