@@ -18,7 +18,7 @@ const ArquitectosBanner: React.FC<Props> = ({ onNavigate }) => {
 
       {/* Overlay oscuro con degradado */}
       <div className="absolute inset-0"
-        style={{ background: 'linear-gradient(105deg, rgba(10,10,10,0.92) 50%, rgba(10,10,10,0.65) 100%)' }} />
+        style={{ background: 'linear-gradient(105deg, rgba(10,10,10,0.82) 40%, rgba(10,10,10,0.35) 100%)' }} />
 
       {/* Línea superior roja */}
       <div className="absolute top-0 inset-x-0 h-px"
